@@ -21,6 +21,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JTree;
 import javax.swing.JList;
 import javax.swing.ImageIcon;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MyUI extends JFrame {
 
@@ -28,6 +32,7 @@ public class MyUI extends JFrame {
 	private JTextField txtHsa;
 	private JTextField txtHsb;
 	private JTextField txtKetqua;
+	private String copy;
 
 	/**
 	 * Launch the application.
@@ -104,6 +109,33 @@ public class MyUI extends JFrame {
 		panel_1.add(txtHsa);
 		txtHsa.setColumns(15);
 		
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(txtHsa, popupMenu);
+		
+		JMenuItem mnuPopCopy = new JMenuItem("Copy");
+		mnuPopCopy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				copy=txtHsa.getText();
+			}
+		});
+		popupMenu.add(mnuPopCopy);
+		
+		JMenuItem mnuPopDelete = new JMenuItem("Delete");
+		mnuPopDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtHsa.setText(null);
+			}
+		});
+		popupMenu.add(mnuPopDelete);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Paste");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtHsa.setText(copy);
+			}
+		});
+		popupMenu.add(mntmNewMenuItem);
+		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2);
 		
@@ -114,6 +146,33 @@ public class MyUI extends JFrame {
 		txtHsb = new JTextField();
 		panel_2.add(txtHsb);
 		txtHsb.setColumns(15);
+		
+		JPopupMenu popupMenu_1 = new JPopupMenu();
+		addPopup(txtHsb, popupMenu_1);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Copy");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				copy=txtHsb.getText();
+			}
+		});
+		popupMenu_1.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Delete");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtHsb.setText(null);
+			}
+		});
+		popupMenu_1.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Paste");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtHsb.setText(copy);
+			}
+		});
+		popupMenu_1.add(mntmNewMenuItem_3);
 		
 		JPanel panel_4 = new JPanel();
 		contentPane.add(panel_4);
@@ -162,4 +221,21 @@ public class MyUI extends JFrame {
 		txtKetqua.setText(String.valueOf(kq));
 	}
 
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+	}
 }
