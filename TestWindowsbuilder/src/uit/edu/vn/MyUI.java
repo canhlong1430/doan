@@ -135,6 +135,7 @@ public class MyUI extends JFrame {
 		panel_3.add(btnNewButton);
 		
 		JButton btnThoat = new JButton("Thoat");
+		btnThoat.setIcon(new ImageIcon("D:\\Do An\\DuAnJava\\DuAnJava\\PJ_QuanLyThuVien\\Hinh\\close.png"));
 		btnThoat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
