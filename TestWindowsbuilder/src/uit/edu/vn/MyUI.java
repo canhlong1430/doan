@@ -57,7 +57,6 @@ public class MyUI extends JFrame {
 		
 		JMenu mnuFile = new JMenu("File");
 		menuBar.add(mnuFile);
-		mnuFile.addSeparator();
 		
 		JMenuItem mnuFileNew = new JMenuItem("New");
 		mnuFileNew.addActionListener(new ActionListener() {
@@ -68,7 +67,8 @@ public class MyUI extends JFrame {
 			}
 		});
 		mnuFile.add(mnuFileNew);
-		
+		mnuFile.addSeparator();
+
 		JMenuItem mnuFileExit = new JMenuItem("Exit");
 		mnuFileExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -76,6 +76,7 @@ public class MyUI extends JFrame {
 			}
 		});
 		mnuFile.add(mnuFileExit);
+		
 		
 		JMenu mnuEdit = new JMenu("Edit");
 		menuBar.add(mnuEdit);
