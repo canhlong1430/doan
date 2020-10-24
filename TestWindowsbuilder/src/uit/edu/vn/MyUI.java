@@ -57,6 +57,7 @@ public class MyUI extends JFrame {
 		
 		JMenu mnuFile = new JMenu("File");
 		menuBar.add(mnuFile);
+		mnuFile.addSeparator();
 		
 		JMenuItem mnuFileNew = new JMenuItem("New");
 		mnuFileNew.addActionListener(new ActionListener() {
@@ -133,6 +134,7 @@ public class MyUI extends JFrame {
 		
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel_3.add(btnNewButton);
+		
 		
 		JButton btnThoat = new JButton("Thoat");
 		btnThoat.setIcon(new ImageIcon("D:\\Do An\\DuAnJava\\DuAnJava\\PJ_QuanLyThuVien\\Hinh\\close.png"));
