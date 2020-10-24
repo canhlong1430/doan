@@ -113,11 +113,7 @@ public class MyUI extends JFrame {
 		addPopup(txtHsa, popupMenu);
 		
 		JMenuItem mnuPopCopy = new JMenuItem("Copy");
-		mnuPopCopy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				copy=txtHsa.getText();
-			}
-		});
+		
 		popupMenu.add(mnuPopCopy);
 		
 		JMenuItem mnuPopDelete = new JMenuItem("Delete");
@@ -151,11 +147,7 @@ public class MyUI extends JFrame {
 		addPopup(txtHsb, popupMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Copy");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				copy=txtHsb.getText();
-			}
-		});
+		
 		popupMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Delete");
@@ -167,6 +159,11 @@ public class MyUI extends JFrame {
 		popupMenu_1.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Paste");
+		if(copy == null)
+		{
+			mntmNewMenuItem_3.setEnabled(false);
+		}
+
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				txtHsb.setText(copy);
@@ -208,6 +205,13 @@ public class MyUI extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				XuLyPhuongTrinh();
+
+			}
+		});
+		mnuPopCopy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				copy=txtHsa.getText();
+				mntmNewMenuItem_3.setEnabled(true);
 
 			}
 		});
