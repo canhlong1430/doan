@@ -118,7 +118,7 @@ public class LoginUI extends JFrame {
 			}
 		});
 		btnGoogle.setBackground(Color.WHITE);
-		btnGoogle.setIcon(new ImageIcon("C:\\Users\\o2i3\\Documents\\google.png"));
+		btnGoogle.setIcon(new ImageIcon("C:\\Users\\o2i3\\git\\doan\\DoAnJaVa2020\\hinh\\google.png"));
 		btnGoogle.setFont(new Font("SVN-Avo", Font.BOLD | Font.ITALIC, 11));
 		
 		JPanel panel_1 = new JPanel();
@@ -127,7 +127,7 @@ public class LoginUI extends JFrame {
 		JButton btnFacebook = new JButton("");
 		panel_1.add(btnFacebook);
 		btnFacebook.setBackground(Color.WHITE);
-		btnFacebook.setIcon(new ImageIcon("C:\\Users\\o2i3\\Documents\\facebook.png"));
+		btnFacebook.setIcon(new ImageIcon("C:\\Users\\o2i3\\git\\doan\\DoAnJaVa2020\\hinh\\facebook.png"));
 		btnFacebook.setFont(new Font("SVN-Avo", Font.BOLD | Font.ITALIC, 11));
 		
 		JPanel panel_2 = new JPanel();
