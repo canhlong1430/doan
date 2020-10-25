@@ -101,7 +101,7 @@ public class MyUI extends JFrame {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nhập hệ số a:");
+		JLabel lblNewLabel_1 = new JLabel("Nhập hệ số a1:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_1.add(lblNewLabel_1);
 		
