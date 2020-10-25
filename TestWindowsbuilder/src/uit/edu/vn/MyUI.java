@@ -174,7 +174,7 @@ public class MyUI extends JFrame {
 		JPanel panel_4 = new JPanel();
 		contentPane.add(panel_4);
 		
-		JLabel lblKetqua = new JLabel("Chó má 	gggt123");
+		JLabel lblKetqua = new JLabel("Chó kha ăn cut");
 		lblKetqua.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_4.add(lblKetqua);
 		
@@ -194,7 +194,7 @@ public class MyUI extends JFrame {
 		
 		
 		JButton btnThoat = new JButton("Thoat");
-		btnThoat.setIcon(new ImageIcon("D:\\Do An\\DuAnJava\\DuAnJava\\PJ_QuanLyThuVien\\Hinh\\close.png"));
+		btnThoat.setIcon(new ImageIcon("D:\\Do An\\DuAnJava\\DuAnJava\\PJ_Quan LyThuVien\\Hinh\\close.png"));
 		btnThoat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
