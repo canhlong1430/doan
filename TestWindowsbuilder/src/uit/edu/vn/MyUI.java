@@ -174,7 +174,7 @@ public class MyUI extends JFrame {
 		JPanel panel_4 = new JPanel();
 		contentPane.add(panel_4);
 		
-		JLabel lblKetqua = new JLabel("Chó kha");
+		JLabel lblKetqua = new JLabel("Chó khajjjj");
 		lblKetqua.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_4.add(lblKetqua);
 		
