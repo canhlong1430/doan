@@ -12,10 +12,16 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class DangNhap extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -47,18 +53,65 @@ public class DangNhap extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
 		
-		JButton btnNewButton = new JButton("New button");
+		JLabel lblNewLabel = new JLabel("\u0110\u0103ng Nh\u1EADp");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		panel.add(lblNewLabel);
+		
+		JPanel panel_2 = new JPanel();
+		contentPane.add(panel_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("T\u00E0i kho\u1EA3n:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		panel_2.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		panel_2.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JPanel panel_3 = new JPanel();
+		contentPane.add(panel_3);
+		
+		JLabel lblNewLabel_2 = new JLabel("M\u1EADt kh\u1EA9u:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		panel_3.add(lblNewLabel_2);
+		
+		passwordField = new JPasswordField();
+		passwordField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					MyUI ui=new MyUI();
+					ui.show();
+				}
+			}
+		});
+		passwordField.setColumns(10);
+		panel_3.add(passwordField);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1);
+		
+		JButton btnNewButton = new JButton("\u0110\u0103ng nh\u1EADp");
+		btnNewButton.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+		
+				if(e.getKeyChar() == KeyEvent.VK_ENTER)
+				{
+					MyUI ui=new MyUI();
+					ui.show();
+				}
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		panel_1.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MyUI myui= new MyUI();
 				myui.show();
 			}
 		});
-		panel.add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("\u0110\u0103ng Nh\u1EADp");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		panel.add(lblNewLabel);
 	}
 
 }
