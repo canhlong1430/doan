@@ -16,6 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Panel;
+import java.awt.Button;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class DangNhap extends JFrame {
 
@@ -48,17 +52,14 @@ public class DangNhap extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel);
 		
 		JLabel lblNewLabel = new JLabel("\u0110\u0103ng Nh\u1EADp");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel.add(lblNewLabel);
 		
 		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("T\u00E0i kho\u1EA3n:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -69,7 +70,6 @@ public class DangNhap extends JFrame {
 		textField_1.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("M\u1EADt kh\u1EA9u:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -90,7 +90,6 @@ public class DangNhap extends JFrame {
 		panel_3.add(passwordField);
 		
 		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1);
 		
 		JButton btnNewButton = new JButton("\u0110\u0103ng nh\u1EADp");
 		btnNewButton.addKeyListener(new KeyAdapter() {
@@ -106,6 +105,23 @@ public class DangNhap extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_1.add(btnNewButton);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
+				.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
+				.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
+				.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+		);
+		contentPane.setLayout(gl_contentPane);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MyUI myui= new MyUI();
