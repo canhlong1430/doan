@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
@@ -23,12 +25,17 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LoginUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtUser;
+	private JPasswordField passPass;
 
 	/**
 	 * Launch the application.
@@ -51,7 +58,7 @@ public class LoginUI extends JFrame {
 	 */
 	public LoginUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 280, 236);
+		setBounds(100, 100, 445, 375);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,27 +79,72 @@ public class LoginUI extends JFrame {
 		JPanel panel_4 = new JPanel();
 		pnLogin.add(panel_4);
 		
-		textField = new JTextField();
-		textField.setText("@username");
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("SVN-Avo", Font.ITALIC, 12));
-		textField.setColumns(20);
-		panel_4.add(textField);
+		txtUser = new JTextField();
+		txtUser.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_TAB)
+				{
+					passPass.setText("");
+					passPass.setEchoChar('*');
+				}
+				
+			}
+			
+		});
+		txtUser.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtUser.setText("");
+			}
+		});
+		txtUser.setText("@username");
+		txtUser.setHorizontalAlignment(SwingConstants.CENTER);
+		txtUser.setFont(new Font("SVN-Avo", Font.ITALIC, 12));
+		txtUser.setColumns(20);
+		panel_4.add(txtUser);
 		
 		JPanel panel_5 = new JPanel();
 		pnLogin.add(panel_5);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("password");
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setFont(new Font("SVN-Avo", Font.ITALIC, 12));
-		textField_1.setColumns(20);
-		panel_5.add(textField_1);
+		passPass = new JPasswordField("@password");
+		passPass.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					
+					ManageUI ui=new ManageUI();
+					ui.show();
+					dispose();
+				}
+			}
+		});
+		passPass.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				passPass.setText("");
+				passPass.setEchoChar('●');
+			}
+		});
+		passPass.setEchoChar((char)0);
+		passPass.setHorizontalAlignment(SwingConstants.CENTER);
+		passPass.setFont(new Font("Dialog", Font.ITALIC, 12));
+		passPass.setColumns(20);
+		panel_5.add(passPass);
 		
 		JPanel panel_6 = new JPanel();
 		pnLogin.add(panel_6);
 		
 		JButton btnDangNhap = new JButton("GO!");
+		btnDangNhap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ManageUI ui=new ManageUI();
+				ui.show();
+				dispose();
+			}
+		});
 		btnDangNhap.setForeground(Color.WHITE);
 		btnDangNhap.setFont(new Font("SVN-Avo", Font.BOLD, 13));
 		panel_6.add(btnDangNhap);
@@ -118,7 +170,7 @@ public class LoginUI extends JFrame {
 			}
 		});
 		btnGoogle.setBackground(Color.WHITE);
-		btnGoogle.setIcon(new ImageIcon("C:\\Users\\o2i3\\git\\doan\\DoAnJaVa2020\\hinh\\google.png"));
+		btnGoogle.setIcon(new ImageIcon("hinh\\google.png"));
 		btnGoogle.setFont(new Font("SVN-Avo", Font.BOLD | Font.ITALIC, 11));
 		
 		JPanel panel_1 = new JPanel();
@@ -127,7 +179,7 @@ public class LoginUI extends JFrame {
 		JButton btnFacebook = new JButton("");
 		panel_1.add(btnFacebook);
 		btnFacebook.setBackground(Color.WHITE);
-		btnFacebook.setIcon(new ImageIcon("C:\\Users\\o2i3\\git\\doan\\DoAnJaVa2020\\hinh\\facebook.png"));
+		btnFacebook.setIcon(new ImageIcon("hinh\\facebook.png"));
 		btnFacebook.setFont(new Font("SVN-Avo", Font.BOLD | Font.ITALIC, 11));
 		
 		JPanel panel_2 = new JPanel();
