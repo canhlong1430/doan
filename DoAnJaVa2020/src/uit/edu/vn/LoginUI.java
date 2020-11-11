@@ -167,11 +167,22 @@ public class LoginUI extends JFrame {
 		panel.add(btnGoogle);
 		btnGoogle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Desktop browser =Desktop.getDesktop();
+				try {
+				browser.browse(new URI("https://accounts.google.com/signin/v2/recoveryidentifier?hl=vi&flowName=GlifWebSignIn&flowEntry=ServiceLogin"));
+				}
+				catch(IOException err)
+				{
+				}
+				catch (URISyntaxException err){
+				}
 			}
+			
 		});
 		btnGoogle.setBackground(Color.WHITE);
 		btnGoogle.setIcon(new ImageIcon("hinh\\google.png"));
 		btnGoogle.setFont(new Font("SVN-Avo", Font.BOLD | Font.ITALIC, 11));
+		JPanel pn112=new JPanel();
 		
 		JPanel panel_1 = new JPanel();
 		pnChucNang.add(panel_1);
